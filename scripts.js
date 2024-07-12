@@ -22,14 +22,20 @@ function showPage(pageId) {
     event.preventDefault();
     const outfitName = document.getElementById('outfitName').value;
     const description = document.getElementById('description').value;
-    const image = document.getElementById('imagePreview').src;
+    const image = document.getElementById('imagePreview');
   
+    if(!imagePreview.src || imagePreview.src === window.location.href){
+      alert('No file chosen.Please select an image file to submit. ')
+      return;
+    }
+
     const entry = document.createElement('div');
     entry.innerHTML = `
       <img src="${image}" alt="${outfitName}">
       <h3>${outfitName}</h3>
       <p>${description}</p>
       <button onclick="vote(this)">Vote</button>
+      <button onclick="deleteEntry(this)">Delete</button>
     `;
     document.getElementById('entries').appendChild(entry);
   
