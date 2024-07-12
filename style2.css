@@ -1,0 +1,51 @@
+#crossword {
+  display: grid;
+  grid-template-columns: repeat(10, 30px); /* Adjust based on your puzzle size */
+  grid-template-rows: repeat(10, 30px); /* Adjust based on your puzzle size */
+  gap: 1px;
+  align-content: center;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #ccc;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.cell.grey {
+  background-color: #ccc;
+  cursor: default;
+}
+
+.cell.correct {
+  background-color: lightgreen;
+}
+
+.cell.incorrect {
+  background-color: tomato;
+}
+
+.cell.active {
+  background-color: yellow; /* Change to indicate active cells */
+}
+
+#clues {
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.clue {
+  margin-bottom: 10px;
+}
+
+.background{
+  background-color: #fdeee7;
+  align-items: center;
+  margin-left: 500px;
+  margin-top: 50px;
+}

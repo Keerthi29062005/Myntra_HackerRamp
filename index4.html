@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Myntra Fashion Contest</title>
+  <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+  <header>
+    <h1 id="one"><b>Myntra Fashion Contest</b></h1>
+    <nav>
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('submit')">Submit Your Entry</button>
+        <button onclick="showPage('vote')">Vote Now</button>
+      </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="home" class="page">
+      <div class="banner">
+        <h2 id="two">Join the Fashion Contest!</h2>
+        <p>Submit your best outfit and get a chance to win exciting prizes.</p>
+        <img src="weekly_fashion.png" alt="models" class="centre_img">
+      </div>
+    </section>
+
+    <section id="submit" class="page" style="display:none;">
+      <h2>Submit Your Outfit</h2>
+      <br>
+      <br>
+      <input type="file" id="imageUpload" accept="image/*" style="align-self: center;" onchange="previewImage(event)" required>
+        <img id="imagePreview" src="weekly_fashion.png" alt="Preview" style="display:none;">
+      <form id="submissionForm">
+       
+        <input type="text" id="outfitName" placeholder="Outfit Name" required>
+        <textarea id="description" placeholder="Description" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+    <section id="vote" class="page" style="display:none;">
+      <h2>Vote for Your Favorite Outfit</h2>
+      <div id="entries" class="gallery"></div>
+    </section>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

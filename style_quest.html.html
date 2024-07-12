@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Quest</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Style Quest</h1>
+    <h4 class="quote">Clicking on each hint deducts points, so choose your moves wisely!</h4>
+    <br>
+    <img class='myimg' src="image.png" />
+    <div class="container">
+        <button id="myhint1">Hint 1</button>
+        <button id="myhint2">Hint 2</button>
+        <button id="myhint3">Hint 3</button>
+        <button id="myhint4">Hint 4</button>
+        <button id="openInputButton" class="openInputButton">Paste Link</button>
+        <div id="inputContainer" style="display:none;">
+            <input type="url" id="linkInput" placeholder="Paste the website link here" required>
+            <button id="submitButton">Submit</button>
+            <iframe id="contentFrame" style="width: 100%; height: 500px; display: none;"></iframe>
+        </div>
+        <h1 id='success' style="display:none;" class="success">SUCCESS</h1>
+        <h1 id='fail' style="display:none;" class="success">Better luck Next time</h1>
+        <h1 id="countid" class="points">You can get <span id="pointCount">100</span> points on finishing the task</h1>
+       
+    </div>
+  
+    <script src="./script.js"></script>
+</body>
+</html>
+
