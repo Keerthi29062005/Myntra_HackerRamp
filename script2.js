@@ -94,11 +94,11 @@ function handleKeyPress(cell, key) {
     cell.textContent = key;
     cell.classList.remove('incorrect');
     cell.classList.add('correct');
-    cell.classList.add('grey'); // Make cell non-writable once correct
-    checkWordCompletion(cell);
+    if(checkWordCompletion(cell)){
+      cell.classList.add('correct-word');
+    }
+    checkGameCompletion();
   } else {
-    cell.textContent = key;
-    cell.classList.remove('correct');
     cell.classList.add('incorrect');
   }
 }
@@ -113,24 +113,35 @@ function checkWordCompletion(cell) {
   let wordInProgress = '';
 
   for (let i = 0; i < word.length; i++) {
-    const cellContent = cells[currentRow][currentCol].textContent;
-    if (cellContent === '') return;
-    wordInProgress += cellContent;
+    const currentCell = cells[currentRow][currentCol];
+    if(!currentCell.classList.contains('correct')){
+      return false;
+    }
     currentRow += (direction === 'down') ? 1 : 0;
     currentCol += (direction === 'across') ? 1 : 0;
   }
-
-  if (wordInProgress === word) {
-    console.log(`Congratulations! You completed the word: ${word}`);
-    checkGameCompletion();
-  }
+  return true;
 }
 
 // Function to check if the entire crossword puzzle is completed
 function checkGameCompletion() {
-  const allCells = crossword.querySelectorAll('.cell');
-  const allNonWritable = Array.from(allCells).filter(cell => cell.classList.contains('grey')).length;
-  if (allNonWritable === gridSize * gridSize) {
+  let allCorrect = true;
+
+  for (let i = 0; i < gridSize; i++) {
+    for (let j = 0; j < gridSize; j++) {
+      const cell = cells[i][j];
+      if (cell.classList.contains('grey')) {
+        continue; // Skip grey cells (unwritten)
+      }
+      if (!cell.classList.contains('correct')) {
+        allCorrect = false;
+        break;
+      }
+    }
+    if (!allCorrect) break;
+  }
+
+  if (allCorrect) {
     console.log('Congratulations! You completed the crossword puzzle!');
     alert('Congratulations! You completed the crossword puzzle!');
   }
