@@ -60,10 +60,10 @@ wordsAndClues.forEach(wordObj => {
   }
 
   // Display clue
-  const clueDiv = document.createElement('div');
-  clueDiv.classList.add('clue');
-  clueDiv.textContent = `${wordObj.clue} (${direction === 'across' ? 'Across' : 'Down'}) - Starting at (${row},${col})`;
-  cluesContainer.appendChild(clueDiv);
+  const clueItem = document.createElement('li');
+  clueItem.classList.add('clue');
+  clueItem.textContent = `${wordObj.clue} (${direction === 'across' ? 'Across' : 'Down'}) - Starting at (${row},${col})`;
+  cluesContainer.appendChild(clueItem);
 });
 
 // Function to set active cell
